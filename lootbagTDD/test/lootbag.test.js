@@ -1,6 +1,6 @@
 'use strict';
 const chai = require('chai');
-const { assert, assert: { isFunction, equal, isObject, deepEqual } } = require('chai');
+const { assert, assert: { isFunction, equal, isObject, deepEqual, isArray, isNotEmpty, isEmpty } } = require('chai');
 const chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
 const { 
@@ -55,6 +55,30 @@ describe("lootbag", () => {
     it('should be a function', () => {
       isFunction(getAllChildren);
     });
+
+    // <<<<<<< before reformating to modify function resolve as an array >>>>>>>>>
+    // it('should return an object', () => {
+    //   return getAllChildren()
+    //   .then( (data) => {
+    //     isObject(data);
+    //   })
+    // })
+
+    // it('should return an object with keys', () => {
+    //   return getAllChildren()
+    //   .then( (data) => {
+    //     assert.hasAnyKeys(data, ['Timmy']);
+    //   })
+    // })
+
+    it('should return an array', () => {
+      return getAllChildren()
+      .then( (data) => {
+        isArray(data);
+      })
+    })
+
+
   });
 
   // Items can be removed from bag, per child only. Removing ball from the bag should not be allowed. A child's name must be specified.

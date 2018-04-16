@@ -57,7 +57,25 @@ module.exports.addToy = (toy, kid) => {
 };
 
 module.exports.getAllChildren = () => {
-
+  // return [];
+  let kids = [];
+  return new Promise( (resolve, reject) => {
+    readFile(toyDataFile, (err, data) => {
+      if (err) 
+        reject(err);
+      let toyData = JSON.parse(data).toys;
+      console.log("toydata",toyData);
+      for(let key in toyData)
+        if(key.toyList)
+          {
+            kids.push(key)
+            console.log(key.toyList,"Toys??")
+          }
+        console.log("Kids???", kids)
+    resolve (kids);
+    // resolve(toyData); <<< before reformatting to an array
+  })
+})
 };
 
 module.exports.removeItem = () => {

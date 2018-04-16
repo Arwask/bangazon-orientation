@@ -21,5 +21,8 @@
   },
   "scripts": {
     "test": "mocha --recursive --watch -R list"
+  },
+  "dependencies": {
+    "chai": "^4.1.2"
   }
 }
